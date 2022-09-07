@@ -54,4 +54,9 @@ $
 
 Git: Brigg-commit, Trmrskr
 
-Twitter: @Briggjimt, Trmrskr
+Twitter: @Briggjimt, @Trmrskr
+
+# Authors
+
+Bridget Idam <ibriget95@gmail.com>
+Alale Tamara-Kuro Simon <simonalale@gmail.com>
