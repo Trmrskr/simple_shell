@@ -52,14 +52,13 @@ $
 
 # Contact Info:
 
-Github: <Brigg-commit>, <Trmrskr>
+Github: Brigg-commit, Trmrskr
 
-Twitter: <Briggjimt>, <@Trmrskr>
+Twitter: Brigjimtg, Trmrskr
 
 # Authors
 
-<ul>
-<li>Bridget Idam <ibriget95@gmail.com></li>
 
-<li>Alale Tamara-Kuro Simon <simonalale@gmail.com></li>
-</ul>
+Bridget Idam <ibridget@gmail.com>
+
+Alale Tamara-Kuro Simon <simonalale@gmail.com>
