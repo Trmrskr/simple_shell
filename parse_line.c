@@ -3,6 +3,7 @@
 
 /**
  * parse_line - a function that parses the the input to the shell
+ * @line: the input to be  parsed
  * @path: the path of the command entered
  * @cmdline: the command, option and argument arrays
  */
@@ -25,7 +26,7 @@ void parse_line(char *line, char **path, char *cmdline[])
 		i++;
 	}
 	cmdline[i] = NULL;
-	
+
 	pathdup = strdup(*path);
 	cmdname = strtok(pathdup, "/");
 

@@ -2,11 +2,12 @@
  * search_path - a function that search the
  * @cmd: the command to be searched for
  * @envp: environment variable to be searched
+ * Return: full path if successful, NULL otherwise
  */
 
-int search_path(char *cmd, char *envp[])
+char *search_path(char *cmd, char *envp[])
 {
 	char *path = "/bin/";
 
-	return (0);
+	return (NULL);
 }
