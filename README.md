@@ -54,4 +54,4 @@ $
 
 Git: Brigg-commit, Trmrskr
 
-Twitter: @Briggjimt,
+Twitter: @Briggjimt, Trmrskr
