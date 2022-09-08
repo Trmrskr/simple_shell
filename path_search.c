@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 /**
  * search_path - a function that search the
  * @cmd: the command to be searched for
