@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
+#include "shell.h"
 
 /**
  * exec_cmd_lines - a function that executes command
@@ -26,7 +27,7 @@ void exec_cmd_lines(char *path, char **cmd, char *envp[])
 	{
 		if (execve(path, cmd, envp) == -1)
 		{
-			perror("exece");
+			perror("execve");
 			return;
 		}
 	}

@@ -8,7 +8,7 @@
  * @envp: the environment variable from main function
  */
 
-void non_interact(char **argv, char *envp[])
+void non_interact(char **argv __attribute__((unused)), char *envp[])
 {
 	int r;
 	char line[4096];

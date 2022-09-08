@@ -6,11 +6,11 @@
  * interact - the function used to run interactive mode for shell
  */
 
-void interact(char **argv, char *envp[])
+void interact(char **argv __attribute__((unused)), char *envp[])
 {
 	int count = 0;
 	ssize_t nread = 1;
-	char *line = NULL, *path, *cmdname, *cmd[ARG_MAX];
+	char *line = NULL, *path, *cmd[ARG_MAX];
 	size_t len = 0;
 
 	while (nread != -1)
@@ -20,7 +20,10 @@ void interact(char **argv, char *envp[])
 		nread = getline(&line, &len, stdin);
 
 		if (nread == -1)
+		{
+			printf("\n");
 			exit(1);
+		}
 
 		if (nread == 1)
 			continue;

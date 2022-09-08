@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include "shell.h"
 
 /**
  * parse_line - a function that parses the the input to the shell
@@ -14,26 +15,26 @@ void parse_line(char *line, char **path, char *cmdline[])
 	int i;
 
 	parsed_line = strtok(line, "\n");
-	*path = strtok(parsed_line, " ");
-	option = strtok(NULL, " ");
+	*path = _strtok(parsed_line, " ");
+	option = _strtok(NULL, " ");
 	i = 2;
-	arg = strtok(NULL, " ");
+	arg = _strtok(NULL, " ");
 
 	while (arg != NULL)
 	{
 		cmdline[i] = arg;
-		arg = strtok(NULL, " ");
+		arg = _strtok(NULL, " ");
 		i++;
 	}
 	cmdline[i] = NULL;
 
 	pathdup = strdup(*path);
-	cmdname = strtok(pathdup, "/");
+	cmdname = _strtok(pathdup, "/");
 
 	while (cmdname != NULL)
 	{
 		cmdline[0] = cmdname;
-		cmdname = strtok(NULL, "/");
+		cmdname = _strtok(NULL, "/");
 	}
 
 	cmdline[1] = option;
