@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 /**
  * non_interact - a function that is called on non-interactive mode
@@ -12,7 +13,7 @@ void non_interact(char **argv __attribute__((unused)), char *envp[])
 {
 	int r;
 	char line[4096];
-	char *path, *cmd[ARG_MAX];
+	char *path, *cmd[LINE_SIZE];
 	
 	r = read(STDIN_FILENO, line, 4096);
 		

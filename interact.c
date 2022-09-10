@@ -10,7 +10,7 @@ void interact(char **argv __attribute__((unused)), char *envp[])
 {
 	int count = 0, i = 0;
 	ssize_t nread = 1;
-	char *line = NULL, *path, *cmd[ARG_MAX];
+	char *line = NULL, *path, *cmd[LINE_SIZE];
 	size_t len = 0;
 
 	while (nread != -1)
