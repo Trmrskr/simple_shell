@@ -8,7 +8,7 @@
 
 void interact(char **argv __attribute__((unused)), char *envp[])
 {
-	int count = 0;
+	int count = 0, i = 0;
 	ssize_t nread = 1;
 	char *line = NULL, *path, *cmd[ARG_MAX];
 	size_t len = 0;
@@ -18,7 +18,7 @@ void interact(char **argv __attribute__((unused)), char *envp[])
 		count++;
 		printf("$: ");
 		nread = getline(&line, &len, stdin);
-
+		
 		if (nread == -1)
 		{
 			printf("\n");
@@ -29,8 +29,8 @@ void interact(char **argv __attribute__((unused)), char *envp[])
 			continue;
 
 		parse_line(line, &path, cmd);
-
 		exec_cmd_lines(path, cmd, envp);
+		fflush(stdin);
 	}
 
 	free(path);
