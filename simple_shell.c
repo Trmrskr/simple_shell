@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include "shell.h"
+#include <limits.h>
 
 /**
  * main - Entry point of program

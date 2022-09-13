@@ -1,7 +1,6 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#define ARG_MAX 127
 
 void interact(char **argv __attribute__((unused)), char *envp[]);
 void non_interact(char **argv __attribute__((unused)), char *envp[]);

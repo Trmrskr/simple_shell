@@ -1,6 +1,7 @@
 #include "shell.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  * interact - the function used to run interactive mode for shell
