@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "shell.h"
 
 /**
@@ -9,34 +10,38 @@
  * @cmdline: the command, option and argument arrays
  */
 
-void parse_line(char *line, char **path, char *cmdline[])
+ssize_t parse_line(char *line, char **path, char *cmdline[])
 {
-	char *parsed_line, *pathdup, *cmdname, *option, *arg;
+	char *parsed_line, *_pth, *pathdup, *cmdname, *option_arg;
 	int i;
 
-	parsed_line = strtok(line, "\n");
-	*path = _strtok(parsed_line, " ");
-	option = _strtok(NULL, " ");
-	i = 2;
-	arg = _strtok(NULL, " ");
+	parsed_line = _strtok(line, "\n");
+	_pth = _strtok(parsed_line, " ");
+	
+	*path = check_for_path(_pth);
+	option_arg = _strtok(NULL, " ");
+	i = 1;
 
-	while (arg != NULL)
+	while (option_arg != NULL)
 	{
-		cmdline[i] = arg;
-		arg = _strtok(NULL, " ");
+		cmdline[i] = option_arg;
+		option_arg = _strtok(NULL, " ");
 		i++;
 	}
 	cmdline[i] = NULL;
 
-	pathdup = strdup(*path);
+	pathdup = strdup(_pth);
 	cmdname = _strtok(pathdup, "/");
-
 	while (cmdname != NULL)
 	{
 		cmdline[0] = cmdname;
 		cmdname = _strtok(NULL, "/");
 	}
+	if (*path == NULL)
+	{
+		return (-1);
+	}
 
-	cmdline[1] = option;
-
+	return (1);
+/*	free(pathdup), free(cmdname), free(option), free(arg);*/
 }
