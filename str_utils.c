@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stddef.h>
 #include <stdlib.h>
 
 /**
@@ -45,3 +46,42 @@ char *str_concat(char *s1, char *s2)
 
 	return (new_str);
 }
+
+/**
+ * _strchr - a function that locaes a character in a string
+ * @s: string from which character is to be located
+ * @c: character to find
+ * Return: pointer to s
+ */
+
+char *_strchr(char *s, char c)
+{
+	while (*s)
+	{
+		if (*s == c)
+			return (s);
+		s++;
+	}
+	if (*s == c)
+		return (s);
+
+	return (NULL);
+}
+
+/**
+ * _strcmp - a function to compare two strings
+ * @s1: the first string
+ * @s2: the second string
+ * Return: the difference between the two strings
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0;
+
+	while (s1[i] && (s1[i] == s2[i]))
+		i++;
+	
+	return (s1[i] - s2[i]);
+}
+

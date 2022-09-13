@@ -10,13 +10,15 @@
  * @cmdline: the command, option and argument arrays
  */
 
-void parse_line(char *line, char **path, char *cmdline[])
+ssize_t parse_line(char *line, char **path, char *cmdline[])
 {
-	char *parsed_line, *pathdup, *cmdname, *option_arg;
+	char *parsed_line, *_pth, *pathdup, *cmdname, *option_arg;
 	int i;
 
 	parsed_line = _strtok(line, "\n");
-	*path = _strtok(parsed_line, " ");
+	_pth = _strtok(parsed_line, " ");
+	
+	*path = check_for_path(_pth);
 	option_arg = _strtok(NULL, " ");
 	i = 1;
 
@@ -28,12 +30,18 @@ void parse_line(char *line, char **path, char *cmdline[])
 	}
 	cmdline[i] = NULL;
 
-	pathdup = strdup(*path);
+	pathdup = strdup(_pth);
 	cmdname = _strtok(pathdup, "/");
 	while (cmdname != NULL)
 	{
 		cmdline[0] = cmdname;
 		cmdname = _strtok(NULL, "/");
 	}
+	if (*path == NULL)
+	{
+		return (-1);
+	}
+
+	return (1);
 /*	free(pathdup), free(cmdname), free(option), free(arg);*/
 }
