@@ -8,6 +8,7 @@
  * @line: the input to be  parsed
  * @path: the path of the command entered
  * @cmdline: the command, option and argument arrays
+ * Return: 1 if path exist and -1 otherwise
  */
 
 ssize_t parse_line(char *line, char **path, char *cmdline[])
@@ -17,7 +18,7 @@ ssize_t parse_line(char *line, char **path, char *cmdline[])
 
 	parsed_line = _strtok(line, "\n");
 	_pth = _strtok(parsed_line, " ");
-	
+
 	*path = check_for_path(_pth);
 	option_arg = _strtok(NULL, " ");
 	i = 1;
