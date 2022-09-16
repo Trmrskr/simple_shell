@@ -4,11 +4,11 @@
 #include <string.h>
 
 /**
- * interact - the function used to run interactive mode for shell
+ * main - the entry point to the program
+ * Return: 0 on success
  */
 
-int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)),
-char *envp[])
+int main(void)
 {
 	int count = 0, i = 0;
 	char *line = NULL, *_line, *path, *cmd[LINE_SIZE];
@@ -20,7 +20,6 @@ char *envp[])
 	while (nread != -1)
 	{
 		count++;
-		
 		if (parse_line(line, &path, cmd) == -1)
 		{
 			built_in = get_built_in(cmd[0]);
@@ -30,13 +29,13 @@ char *envp[])
 				perror("stat");
 		}
 		else
-			exec_cmd_lines(path, cmd, envp);
+			exec_cmd_lines(path, cmd, environ);
 
 		if (isaty == -1)
 			break;
 
 		fflush(stdin);
-		printf("$>>: ");
+		printf("$t>>: ");
 		nread = getline(&line, &len, stdin);
 	}
 

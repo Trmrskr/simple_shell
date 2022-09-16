@@ -6,7 +6,7 @@
 
 /**
  * exit_process - a function to exit a running process
- * @str: a string containing exit value
+ * @cmd: an array of command to be executed
  */
 
 void exit_process(char **cmd)

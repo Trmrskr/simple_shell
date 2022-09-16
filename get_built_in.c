@@ -3,6 +3,13 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * get_built_in - a functionpointer that matches built in commands to function
+ * @cmd: input to function pointer
+ * @cmd: an array of command passed to returned function
+ * Return: a function if found or NULL otherwise
+ */
+
 void (*get_built_in(char *cmd))(char **_cmd)
 {
 	int i;

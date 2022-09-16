@@ -17,7 +17,7 @@ void add_node(path_lists *path, char *path_str)
 		printf("Error: failed to create new node\n");
 		return;
 	}
-	
+
 	new_node->path_str = path_str;
 	new_node->next = NULL;
 
@@ -31,18 +31,6 @@ void add_node(path_lists *path, char *path_str)
 	{
 		path = path->next;
 	}
-	
+
 	path->next = new_node;
-}
-
-/**
- * search_file - a function that searches a path if a file exists
- * @path: the path to be searched
- * @file: the name of the file to be searched for
- * Return: a pointer to the full pathname if found, NULL otherwise
- */
-
-char *search_file(path_lists *path, char *file)
-{
-	
 }

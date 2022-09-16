@@ -8,10 +8,10 @@
  * exec_cmd_lines - a function that executes command
  * @path: the path of the command
  * @cmd: the array of command option and arguments
- * @envp: the environment variable
+ * @environ: the environment variable
  */
 
-void exec_cmd_lines(char *path, char **cmd, char *envp[])
+void exec_cmd_lines(char *path, char **cmd, char **environ)
 {
 	pid_t cpid, wpid;
 	int status;
@@ -25,7 +25,7 @@ void exec_cmd_lines(char *path, char **cmd, char *envp[])
 	}
 	if (cpid == 0)
 	{
-		if (execve(path, cmd, envp) == -1)
+		if (execve(path, cmd, environ) == -1)
 		{
 			perror("execve");
 			return;
